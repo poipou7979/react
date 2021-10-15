@@ -4,6 +4,5 @@ services:
 
 before_install:
   - docker build -t pourya/front-react -f Dockerfile.dev .
-  - YARN_GPG=no
 script:
-  - docker run pourya/front-react npm run test -- --coverage
+  - docker run -e CI=true pourya/front-react npm run test -- --coverage
